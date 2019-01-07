@@ -197,6 +197,7 @@ public class HttpProxyCacheServer {
             if (clients != null) {
                 clients.shutdown();
             }
+            clientsMap.remove(url);
         }
     }
 
