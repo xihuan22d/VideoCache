@@ -125,6 +125,7 @@ class ProxyCache {
             offset = cache.available();
             boolean needCover=source.open(offset);
             if (needCover){
+                cache.reset();
                 offset=0;
             }
             sourceAvailable = source.length();

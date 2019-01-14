@@ -4,6 +4,9 @@ package com.danikula.videocache;
  * Cache for proxy.
  *
  * @author Alexey Danilov (danikula@gmail.com).
+ *
+ *  add reset
+ *  updated by xihuan22d
  */
 public interface Cache {
 
@@ -12,6 +15,8 @@ public interface Cache {
     int read(byte[] buffer, long offset, int length) throws ProxyCacheException;
 
     void append(byte[] data, int length) throws ProxyCacheException;
+
+    void reset() throws ProxyCacheException;
 
     void close() throws ProxyCacheException;
 

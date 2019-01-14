@@ -48,6 +48,10 @@ public class ByteArrayCache implements Cache {
     }
 
     @Override
+    public void reset() throws ProxyCacheException {
+    }
+
+    @Override
     public void close() throws ProxyCacheException {
     }
 
