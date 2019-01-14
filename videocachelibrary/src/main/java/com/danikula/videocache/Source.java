@@ -13,7 +13,7 @@ public interface Source {
      * @param offset offset in bytes for source.
      * @throws ProxyCacheException if error occur while opening source.
      */
-    void open(long offset) throws ProxyCacheException;
+    boolean open(long offset) throws ProxyCacheException;
 
     /**
      * Returns length bytes or <b>negative value</b> if length is unknown.

@@ -1,6 +1,5 @@
 package com.danikula.videocache;
 
-import com.danikula.videocache.bandwidth.BandwidthLimiter;
 import com.danikula.videocache.file.DiskUsage;
 import com.danikula.videocache.file.FileNameGenerator;
 import com.danikula.videocache.headers.HeaderInjector;

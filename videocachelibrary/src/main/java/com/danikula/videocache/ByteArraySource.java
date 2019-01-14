@@ -27,9 +27,10 @@ public class ByteArraySource implements Source {
     }
 
     @Override
-    public void open(long offset) throws ProxyCacheException {
+    public boolean open(long offset) throws ProxyCacheException {
         arrayInputStream = new ByteArrayInputStream(data);
         arrayInputStream.skip(offset);
+        return false;
     }
 
     @Override

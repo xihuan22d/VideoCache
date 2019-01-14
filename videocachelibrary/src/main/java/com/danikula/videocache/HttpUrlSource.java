@@ -81,9 +81,15 @@ public class HttpUrlSource implements Source {
     }
 
     @Override
-    public void open(long offset) throws ProxyCacheException {
+    public boolean open(long offset) throws ProxyCacheException {
+        boolean needCover=false;//缓存出错重新下载需要覆盖旧文件
         try {
-            connection = openConnection(offset, -1);
+            try {
+                connection = openConnection(offset, -1);
+            } catch (IOException e) {
+                connection = openConnection(0, -1);
+                needCover=true;
+            }
             String mime = connection.getContentType();
             int singleFileBandwidth=0;
             if (config!=null){
@@ -97,6 +103,7 @@ public class HttpUrlSource implements Source {
         } catch (IOException e) {
             throw new ProxyCacheException("Error opening connection for " + sourceInfo.url + " with offset " + offset, e);
         }
+        return needCover;
     }
 
     private long readSourceAvailableBytes(HttpURLConnection connection, long offset, int responseCode) throws IOException {
